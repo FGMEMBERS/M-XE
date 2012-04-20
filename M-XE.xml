@@ -1,0 +1,623 @@
+<!--
+Mosquito XE / XEL
+
+Length: Frame 16 ft., Overall 20 ft. Width: 72 in., Height: 84 in.
+
+Rotor Diameter: Main 19.5 ft., Tail 40 in.
+
+Empty Weight XE: 298 lb
+
+Empty Weight XEL: 312 lb
+
+Gross Weight: 610 lbs
+
+Useful (Pilot) Load: 240 lbs.
+
+Fuel Capacity XE: 12 US gallons
+
+Fuel Capacity XEL: 5 US gallons (as required by FAA Part 103, Ultralight Regulations)
+
+Engine: Compact Radial Engines MZ202, 2 cylinder, 2 stroke, rated 64 HP (45kW)
+
+Electrical System: 12 volt DC battery, starter, 180 watt alternator
+
+Rotor Speeds: Main 540 rpm, Tail 2500 rpm
+
+Fuel burn: 4.5 gph
+
+Range: XE: 150 miles/ XEL: 60 miles
+
+Hover in ground effect: 8,000 ft. (estimated)
+
+Hover out of ground effect: 6,500 ft. (estimated)
+
+Max Speed: 80 MPH
+
+ 
+
+The FAA has ruled that the maximum speed of 63 mph normally applied to fixed wing ultralights does not apply to helicopters due to their unique power curve.
+
+The FAA increases the weight limit of ultralights to 314 lb for float equipped aircraft. The 312 lb empty weight of the float equipped XEL fits into the ultralight class
+
+ 
+
+Mosquito XE3
+
+Length: Frame 16 ft., Overall 20 ft. Width: 72 in., Height: 84 in.
+
+Rotor Diameter: Main 19.5 ft., Tail 40 in.
+
+Empty wt: 360 lb
+
+Gross wt: 720 lb
+
+Useful load: 290 lb
+
+Fuel Capacity: 12 gal
+
+Range: 150 miles
+
+Cruise spd: 80 mph
+
+Max spd: 100+ mph
+
+Fuel burn at cruise: 5 gph
+
+Engine: CRE MZ301 3 cyl 2 cycle
+
+Power 85 hp (64 kw)
+
+Rotor RPM: 590 (main), 2500 (tail)
+
+Hover in ground effect 9500 ft (est)
+
+Hover out of ground effect 7500 ft (est)
+
+ 
+
+
+Mosquito XET
+
+Length: Frame 16 ft., Overall 20 ft. Width: 72 in., Height: 84 in.
+
+Rotor Diameter: Main 19.5 ft., Tail 40 in.
+
+Empty wt: 433 lb
+
+Gross wt: 820 lb
+
+Useful load (with optional aux tank): 240 lb
+
+Useful load (without optional aux tank): 290 lb
+
+Fuel capacity: 12 gal
+
+Aux tank capacity: 8 gal
+
+Range (with aux tank): 160 miles
+
+Cruise spd: 80 mph
+
+Max spd: 100+ mph
+
+Fuel burn at cruise: 8.5 gph
+
+Engine: Solar T62-2A1 turbine
+
+Power: 90 hp
+
+Rotor RPM: 590 (main), 2500 (tail)
+
+Hover in ground effect 9000 ft (est)
+
+Hover out of ground effect 7000 ft (est)
+
+6m rotor
+312+180=
+
+rotor1
+rotor2
+rotor3
+rotor4
+rotor5
+rotor6
+rotor7
+rotor8
+rotor9
+rotor10
+
+tail1
+tail2
+tail3
+
+blades - standard NACA0012 
+
+-->
+
+  
+
+
+<airplane mass="500">
+
+    <approach speed="40" aoa="16" fuel="0">
+      <control-setting axis="/controls/engines/engine[0]/throttle" value="0.4"/>
+    </approach>
+
+    <cruise speed="60" alt="0" fuel="0">
+        <control-setting axis="/controls/engines/engine[0]/throttle" value="0.8"/>
+    </cruise>
+  
+
+    <rotor name="main" x="-0.4" y="0.0" z="1.1" 
+    nx="0" ny="0" nz="1.0" fx="1" fy="0" fz="0" ccw="1"
+    maxcollective="13" mincollective="0"
+    mincyclicele="-9" maxcyclicele="9"
+    mincyclicail="-5" maxcyclicail="5"
+	 
+    diameter="6" numblades="2" weightperblade="25" relbladecenter="0.5"
+    dynamic="1" rpm="540" rellenflaphinge="0.1" delta3="0"
+    delta=".25"
+    pitch-a="10"
+    pitch-b="15"
+    flapmin="-15"
+    flapmax="15"
+    flap0="-5"
+    phi0="1"
+    flap0factor="0"
+    notorque="0"
+    dragfactor="0.30"
+    translift-ve="18"
+    translift-maxfactor="1.3"
+    ground-effect-constant="0.2"
+    twist="-7"
+    taper="1"
+    chord="0.175"
+    number-of-segments="8"
+    number-of-parts="8"
+    rel-len-where-incidence-is-measured="0.7"
+    rel-len-blade-start="0.076"
+    airfoil-lift-coefficient="6.3"
+    airfoil-drag-coefficient0="0.0075"
+    airfoil-drag-coefficient1="0.1"
+    incidence-stall-zero-speed="18.0"
+    incidence-stall-half-sonic-speed="9.0"
+    lift-factor-stall="0.18"
+    stall-change-over="5.5"
+    drag-factor-stall="8.0"
+    cyclic-factor="0.80"
+    rotor-correction-factor="0.95"
+    downwashfactor="0.9"
+    >
+    <control-input axis="/controls/flight/aileron-trim" control="CYCLICAIL" split="true"/>
+    <control-input axis="/controls/flight/aileron" control="CYCLICAIL"
+        src0="-1.0" src1="1.0"
+        dst0="-1" dst1="1"/>
+    <control-input axis="/controls/flight/elevator-trim" control="CYCLICELE"/>
+    <control-input axis="/controls/flight/elevator" control="CYCLICELE"
+        src0="-1.0" src1="1.0"
+        dst0="-1.0" dst1="1.0"/>
+    <control-input axis="/controls/engines/engine[0]/throttle" control="COLLECTIVE"
+        src0="0.0" src1="1.0"
+        dst0="1.0" dst1="-1.0"/>
+    </rotor>
+<!--
+ 
+	 maxcollective="24" mincollective="-26.0"
+	 
+	 added
+		dragfactor="0.30" 
+		
+		
+		 maxcollective="24"
+         mincollective="-5"
+	 maxcollective="24" mincollective="-10.0"
+	 
+	  yasimdragfactor="20"
+	  
+	   maxcollective="17" mincollective="-15.0"
+	   o.3 to left (5 points)
+	  maxcollective="22" mincollective="-10.0"
+	  
+	  
+	  dragfactor="0.30" 
+-->
+
+<rotor name="tail" x="-3.7979" y="0.1611" z="0.5568" 
+   nx="0.0" ny="-1" nz="0.0" fx="1" fy="0" fz="0" ccw="1"
+   maxcollective="22" mincollective="-10.0"
+  diameter="1.0668" numblades="2" weightperblade="2" relbladecenter="0.55"
+  dynamic="0.90" rpm="2500" rellenflaphinge="0.0" delta3="1" translift="0" delta="0.7"
+  sharedflaphinge="1"
+  pitch-a="10"
+  pitch-b="15"
+  airfoil-lift-coefficient="6.3"
+  airfoil-drag-coefficient0="0.0075"
+  airfoil-drag-coefficient1="0.1"
+  incidence-stall-zero-speed="18"
+  incidence-stall-half-sonic-speed="9"
+  lift-factor-stall="0.18"
+  stall-change-over="5.5"
+	
+  drag-factor-stall="8.0"
+  notorque="0"
+  taper="1"
+  chord="0.116"
+  number-of-segments="5"
+  number-of-parts="4"
+  rel-len-blade-start="0.2"
+  rotor-correction-factor="0.98"
+  downwashfactor="0.9"
+
+>
+<control-input axis="/controls/flight/rudder" control="COLLECTIVE"
+    src0="-1.0" src1="1.0"
+    dst0="1.0" dst1="-1.0"/>
+    <control-input axis="/controls/flight/rudder-trim" control="COLLECTIVE"
+    src0="-1.0" src1="1.0"
+    dst0="1.0" dst1="-1.0"/>
+</rotor>
+<!-- 
+airfoil-lift-coefficient="6.5"
+  airfoil-drag-coefficient0="0.002"
+  airfoil-drag-coefficient1="0.05"
+  incidence-stall-zero-speed="15"
+  incidence-stall-half-sonic-speed="10.5"
+  lift-factor-stall="0.26"
+  stall-change-over="5"
+	dragfactor="0.30" 
+  drag-factor-stall="6.0"
+  notorque="0"
+  taper="1"
+  chord="0.116"
+  number-of-segments="5"
+  number-of-parts="4"
+  rel-len-blade-start="0.2"
+  rotor-correction-factor="0.9"
+  downwashfactor="0.9"
+
+
+
+rel-len-where-incidence-is-measured="0.7"
+    rel-len-blade-start="0.076"
+    airfoil-lift-coefficient="6.3"
+    airfoil-drag-coefficient0="0.0075"
+    airfoil-drag-coefficient1="0.1"
+    incidence-stall-zero-speed="18.0"
+    incidence-stall-half-sonic-speed="9.0"
+    lift-factor-stall="0.18"
+    stall-change-over="5.5"
+    drag-factor-stall="8.0"
+    cyclic-factor="0.80"
+    rotor-correction-factor="0.95"
+    downwashfactor="0.9"
+
+-->
+
+<rotorgear
+  max-power-engine="64"
+  max-power-rotor-brake="10"
+  rotorgear-friction="0.2"
+  engine-prop-factor="0.02"
+  engine-accel-limit="5"
+
+  yasimdragfactor="15"
+  yasimliftfactor="150"
+>
+	
+	<control-input axis="/controls/engines/engine[0]/magnetos" control="ROTORGEARENGINEON"/>
+	<control-input axis="/controls/rotor/brake" control="ROTORBRAKE"
+		   src0="0.0" src1="1.0"
+		   dst0="0.0" dst1="1.0"/>
+		   
+</rotorgear>
+
+
+
+<!--fake engine for sound and consumption
+
+  <engines>
+    <engine>
+      <rpm type="double">500</rpm>
+    </engine>
+  </engines>
+  
+  <control-input axis="/engines/engine[0]/running" control="ROTORGEARENGINEON"/>
+	
+  
+<control-input axis="/controls/rotor/reltarget" control="ROTORRELTARGET"
+                 src0="0.0" src1="2.0"
+                 dst0="0.0" dst1="2.0"/>
+  <control-input axis="/controls/rotor/maxreltorque" control="ROTORENGINEMAXRELTORQUE"
+                 src0="0.0" src1="2.0"
+                 dst0="0.0" dst1="2.0"/>
+	
+	
+<control-input axis="/controls/engines/engine[0]/magnetos" control="ROTORGEARENGINEON"/>
+	
+	    <propeller x="-0.6936" y="0" z="-0.009823"
+  
+             mass="1"
+             moment="0.1"
+             radius="0.0001"
+             cruise-speed="80"
+             cruise-rpm="2400"
+             cruise-alt="2000"
+             cruise-power="1"
+             takeoff-power="1"
+             takeoff-rpm="3000"
+	     contra="1"
+	    
+	      >
+	</propeller>
+
+
+  
+	<piston-engine eng-power="1"
+                            eng-rpm="3200"
+                            displacement="1" >
+		<control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"
+			src0="0.0" src1="1.0"
+			dst0="0.0" dst1="1.0"/>
+		<control-input axis="/controls/engines/engine[0]/starter" control="STARTER"/>
+		<control-input axis="/controls/engines/engine[0]/magnetos" control="MAGNETOS"/>
+	</piston-engine>
+  
+-->
+<!--fake engine
+  <jet x="-0.6936" y="0" z="-0.009823"
+  mass="1" thrust="1"
+   tsfc="53" rotate="0.0" egt="840" spool-time="2"
+   n1-idle="0.0" n1-max="100" n2-idle="0.0" n2-max="100">
+    <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"
+     src0="0.0" src1="1.0"
+     dst0="1.0" dst1="0.0"/>
+   />
+    
+    </jet>
+-->
+
+
+
+<cockpit x="0" y="0" z="0"/>
+
+
+
+<fuselage ax="1.0229" ay="0" az="-0.1040"
+  bx="-0.7752" by="0" bz="0.5294" idrag="0"
+  width="0.6" taper="0.7" midpoint="0.5"
+  cy="1.2" cx="1.2"/><!--cabin-->
+
+<fuselage ax="1.0229" ay="0" az="0.4684"
+  bx="-0.6512" by="0" bz="0.1448" idrag="0"
+  width="0.6" taper="0.7" midpoint="0.5"
+  cy="1.2" cx="1.2"/><!--cabin-->
+
+<fuselage ax="-0.55" ay="0" az="0.4730"
+  bx="-3.85" by="0" bz="0.5568" idrag="0"
+  width="0.22" taper="0.2" midpoint="0.0"/><!--tail boom-->
+
+
+<vstab x="-3.4" y="0" z="0.5568" taper="0.7" length="0.45" chord="0.2">
+  <stall aoa="16" width="4" peak="1.5"/>
+</vstab>
+
+<vstab x="-3.4" y="0" z="0.5568" taper="0.7" length="0.45" chord="0.2"
+	dihedral="-90">
+  <stall aoa="16" width="4" peak="1.5"/>
+</vstab>
+
+
+
+<!--  
+
+
+Slows down
+
+<hstab x="-2.9"  y="0" z="0.5568" taper="1.0" effectiveness="2.0" length="0.5" 
+	chord="0.2" sweep="0">
+  <stall aoa="0" width="0" peak="1.5"/>
+</hstab>
+
+<gear x="0.7900" y="0.7510" z="-0.7518" skid="1" compression="0.10"
+spring="1.0" damp="0" sfric="0.2" dfric="0.5"
+>
+  </gear>
+ initial-load="0.75"
+ 
+ spring="1.0" damp="0" sfric="0.2" dfric="0.5"
+ 
+
+ skid="1" 
+        compression="0.05"
+        spring="1.0" 
+        damp="0.2" 
+        sfric="0.5" 
+        dfric="0.4"
+	
+
+<gear x="-1.04" y="+1.20" z="-1.22" skid="1" compression="0.10" spring="0.8" sfric="0.5" dfric="0.4"/>
+<gear x="-3.32" y="+1.20" z="-1.18" skid="1" compression="0.10" spring="0.8" sfric="0.5" dfric="0.4"/>
+
+
+<gear x="-1.04" y="-1.20" z="-1.22" skid="1" compression="0.10" spring="0.8" sfric="0.5" dfric="0.4"/>
+<gear x="-3.32" y="-1.20" z="-1.18" skid="1" compression="0.10" spring="0.8" sfric="0.5" dfric="0.4"/>
+
+<gear x="-8.45" y="+0.00" z="-0.03" skid="1" compression="0.01" spring="0.1" sfric="1" dfric="1"/>
+
+
+	skid="1" compression="0.05" spring="0.8" sfric="0.5" dfric="0.4"
+	
+	skid="1" compression="0.05" spring="0.8" sfric="0.5" dfric="0.4"
+	
+	skid="1" compression="0.10" spring="1.0" damp="0" sfric="0.2" dfric="0.5"
+
+
+ skid="1" compression="0.05" spring="0.7"   damp="10"  sfric="0.8" dfric="0.1"
+ 
+ 
+ 
+  skid="1" compression="0.10" spring="1.0" damp="0" sfric="0.2" dfric="0.5"
+ skid="1" compression="0.05" spring="0.7"   damp="10"  sfric="0.8" dfric="0.1"
+
+skid="1" compression="0.05" spring="0.8" sfric="0.5" dfric="0.4"
+
+-->
+
+
+
+<gear x="0.7900" y="0.7510" z="-0.7518" 
+ skid="1" compression="0.05" spring="0.8" sfric="0.5" dfric="0.4"
+>
+  </gear>
+
+<gear x="0.7900" y="-0.7510" z="-0.7518" 
+ skid="1" compression="0.05" spring="0.8" sfric="0.5" dfric="0.4"
+>
+  </gear>
+
+  
+<gear x="-0.8625" y="0.7510" z="-0.7518" 
+  skid="1" compression="0.05" spring="0.8" sfric="0.5" dfric="0.4"
+>
+  </gear>
+
+<gear x="-0.8625" y="-0.7510" z="-0.7518" 
+  skid="1" compression="0.05" spring="0.8" sfric="0.5" dfric="0.4"
+>
+  </gear>
+
+
+<!-- gear thrusters - "magnets"
+
+
+
+<thruster x="0.7900" y="0.7510" z="-0.7518" 
+	vx="0" vy="0" vz="-1" thrust="10">
+  <control-input axis="gear/gear[0]/wow" src0="0" src1="1" dst0="0" dst1="1" control="THROTTLE"/>
+  </thruster>
+  
+<thruster x="0.7900" y="-0.7510" z="-0.7518" 
+	vx="0" vy="0" vz="-1" thrust="10">
+  <control-input axis="gear/gear[1]/wow" src0="0" src1="1" dst0="0" dst1="1" control="THROTTLE"/>
+  </thruster>
+  
+  <thruster x="-0.8625" y="0.7510" z="-0.7518" 
+	vx="0" vy="0" vz="-1" thrust="10">
+  <control-input axis="gear/gear[2]/wow" src0="0" src1="1" dst0="0" dst1="1" control="THROTTLE"/>
+  </thruster>
+  
+  <thruster x="-0.8625" y="-0.7510" z="-0.7518" 
+	vx="0" vy="0" vz="-1" thrust="10">
+  <control-input axis="gear/gear[3]/wow" src0="0" src1="1" dst0="0" dst1="1" control="THROTTLE"/>
+  </thruster>
+  
+-->
+
+  
+<!-- tail rotor guard
+skid="1" compression="0.01"
+spring="0.1" sfric="1" dfric="1"/
+-->
+<gear x="-3.6805" y="0.00" z="0.1108" 
+skid="1" compression="0.01" spring="0.1" sfric="1" dfric="1"
+/>
+<gear x="-3.8031" y="0.00" z="0.0" 
+skid="1" compression="0.01" spring="0.1" sfric="1" dfric="1"
+/>
+<gear x="-4.0033" y="0.00" z="0.06448" 
+skid="1" compression="0.01" spring="0.1" sfric="1" dfric="1"
+/>
+
+<tank name="Main" x="-0.6936" y="0" z="-0.009823" capacity="100"/><!--main-->
+
+
+<ballast x="-0.6936" y="0" z="-0." mass="200"/>
+<!-- 
+<ballast x="-0.6936" y="0" z="-0.5" mass="180"/>
+cog 
+x  -0.2708
+z  0.1839
+
+<ballast x="-0.0" y="0.0" z="0" mass="40"/>
+-->
+
+
+<!--
+pilot
+ CG: x:-0.247, y:-0.000, z:0.177
+<weight x="0" y="0"  z="0" mass-prop="/sim/weight[0]/weight-lb"/>
+x="-0.4" y="0.0" z="0.1" 
+-->
+
+
+<ballast x="0.0" y="0.0" z="0" mass="100"/>
+
+
+<!--
+ CG: x:-0.247, y:-0.000, z:0.177
+ 
+
+ <rotor name="main" x="-0.4" y="0.0" z="1.1" 
+
+CG should be close to x-0.4 z-0.1
+
+<ballast x="-0.4" y="0.7510" z="0.1" mass="40"/>
+<ballast x="-0.4" y="-0.7510" z="0.1" mass="40"/>
+
+
+<ballast x="-0.4" y="0.1500" z="0.1" mass="40"/>
+<ballast x="-0.4" y="-0.1500" z="0.1" mass="40"/>
+
+-->
+
+<ballast x="-0.4" y="0.300" z="0.1" mass="40"/>
+<ballast x="-0.4" y="-0.300" z="0.1" mass="40"/>
+
+<!--
+<weight n="0">
+            <name>Pilot</name>
+            <weight-lb>180</weight-lb>
+            <max-lb>240</max-lb>
+            <min-lb>100</min-lb>
+        </weight>
+
+		<weight n="1">
+			<name>LeftFGear</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>100</max-lb>
+		</weight>
+
+		<weight n="2">
+			<name>LeftRGear</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>100</max-lb>
+		</weight>
+
+		<weight n="3">
+			<name>RightFGear</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>100</max-lb>
+		</weight>
+
+		<weight n="4">
+			<name>RightRGear</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>100</max-lb>
+		</weight>
+		
+<weight x="0" y="0"  z="0" mass-prop="/sim/weight[0]/weight-lb"/>
+
+-->
+
+
+<weight x="0.7900" y="0.7510" z="-0.7518"    mass-prop="/sim/weight[1]/weight-lb"/>
+<weight x="0.7900" y="-0.7510" z="-0.7518"   mass-prop="/sim/weight[2]/weight-lb"/>
+<weight x="-0.8625" y="0.7510" z="-0.7518"   mass-prop="/sim/weight[3]/weight-lb"/>
+<weight x="-0.8625" y="-0.7510" z="-0.7518"  mass-prop="/sim/weight[4]/weight-lb"/>
+
+
+</airplane>
+
+
+              
+

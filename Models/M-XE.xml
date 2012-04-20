@@ -1,0 +1,431 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <path>m-xe.ac</path>
+
+  <nasal>
+        <load>
+            var livery_update = aircraft.livery_update.new("Aircraft/M-XE/Models/Liveries", 10);
+        </load>
+
+        <unload>
+            livery_update.stop();
+        </unload>
+    </nasal>
+    
+    <!--
+
+-->
+   <animation>
+      <type>material</type>
+      <object-name>Cylinder.008</object-name>
+      <object-name>Cylinder.010</object-name>
+      <object-name>Cylinder.011</object-name>
+      <object-name>Circle.001</object-name>      
+      <object-name>Circle</object-name>      
+      
+      <object-name>moteur0</object-name>      
+      <object-name>Cylinder.013</object-name>    
+      <object-name>Cylinder.012</object-name>    
+      
+      <property-base>sim/model/livery</property-base>
+      <texture-prop>texture</texture-prop>
+      <texture>texture.png</texture>
+    </animation>
+
+<!-- 
+
+<name>main_rotor_blades</name>
+
+
+<animation>
+   <object-name>rotor1</object-name>
+   <object-name>rotor2</object-name>
+   <object-name>rotor3</object-name>
+   <object-name>rotor4</object-name>
+   <object-name>rotor5</object-name>
+   <object-name>rotor6</object-name>
+   <object-name>rotor7</object-name>
+   <object-name>rotor8</object-name>
+   <object-name>rotor9</object-name>
+   <object-name>rotor10</object-name>
+   
+   <object-name>tail1</object-name>
+   <object-name>tail2</object-name>
+   <object-name>tail3</object-name>
+	
+    <object-name>rotor1blur</object-name>
+    <object-name>rotor2blur</object-name>
+    <object-name>tailblur</object-name>
+	
+   <object-name>manche1</object-name>	
+   <object-name>manche2</object-name>	
+	
+  </animation>
+-->
+  
+<animation>
+   <name>main_rotor_blades</name>
+   <object-name>rotor1</object-name>
+   <object-name>rotor2</object-name>
+   <object-name>rotor3</object-name>
+   <object-name>rotor4</object-name>
+   <object-name>rotor5</object-name>
+   <object-name>rotor6</object-name>
+   <object-name>rotor7</object-name>
+   <object-name>rotor8</object-name>
+   <object-name>rotor9</object-name>
+   <object-name>rotor10</object-name>
+
+	
+    <object-name>rotor1blur</object-name>
+    <object-name>rotor2blur</object-name>
+
+	
+  </animation>
+
+
+
+<!-- 
+
+  <animation>
+    <type>select</type>
+    <object-name>rotor1blur</object-name>
+    <object-name>rotor2blur</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>rotors/main/rpm</property>
+          <value>60</value>
+        </greater-than>
+        <less-than>
+          <property>rotors/main/rpm</property>
+          <value>150.001</value>
+        </less-than>
+      </and>
+    </condition>
+  </animation>
+
+-->
+
+
+   <animation>
+	<type>spin</type>
+	<object-name>main_rotor_blades</object-name>
+    	<property>rotors/main/rpm</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+	<center>
+		<x-m>0.4</x-m>
+		<y-m>0.0</y-m>
+		<z-m>1.1</z-m>
+	</center>
+</animation>
+  <!--
+ <animation>
+	<type>spin</type>
+	<object-name>rotor3</object-name>
+	<object-name>rotor4</object-name>
+	<object-name>rotor5</object-name>
+	<object-name>rotor6</object-name>
+	<object-name>rotor7</object-name>
+	<object-name>rotor8</object-name>
+	<object-name>rotor9</object-name>
+	<object-name>rotor10</object-name>
+    	<property>rotors/main/rpm</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+	<center>
+		<x-m>0.4</x-m>
+		<y-m>0.0</y-m>
+		<z-m>1.1</z-m>
+	</center>
+</animation>
+  
+   <animation>
+	<type>spin</type>
+	<object-name>rotor1</object-name>
+	<object-name>rotor2</object-name>
+    	<property>rotors/main/rpm</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+	<center>
+		<x-m>0.4</x-m>
+		<y-m>0.0</y-m>
+		<z-m>1.1</z-m>
+	</center>
+</animation>  
+  
+ <animation>
+	<type>spin</type>
+	<object-name>rotor1blur</object-name>
+	<object-name>rotor2blur</object-name>
+    	<property>rotors/main/rpm</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+	<center>
+		<x-m>0.4</x-m>
+		<y-m>0.0</y-m>
+		<z-m>1.1</z-m>
+	</center>
+</animation>  
+
+  -->
+  
+  <!--
+<object-name>tailblur</object-name>
+-->
+ <animation>
+	<type>spin</type>
+	<object-name>tail1</object-name>
+	<object-name>tail2</object-name>
+	<object-name>tail3</object-name>
+	<property>rotors/tail/rpm</property>
+	<factor>1</factor>
+	<offset-deg>0</offset-deg>
+	<axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+	</axis>
+	<center>
+		<x-m>3.7977</x-m>
+		<y-m>-0.2332</y-m>
+		<z-m>0.5569</z-m>
+	</center>
+</animation>
+
+
+    <!-- Instruments
+    <object-name>tailblur</object-name>
+    
+left
+-0.7473
+-0.08244
+-0.03154
+
+top
+-0.7578
+0
+0.009757
+
+
+right
+-0.7473
+0.0826
+-0.03154
+
+down
+-0.7376
+0
+-0.06992
+
+-->
+
+
+<animation>
+    <type>rotate</type>
+    <object-name>pedalR</object-name>
+    <property>controls/flight/rudder</property>
+    <factor> 20 </factor>
+    <center>
+	<x-m>-0.8062</x-m>
+	<y-m> 0</y-m>
+	<z-m>-0.3178</z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> -1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>pedalL</object-name>
+    <property>controls/flight/rudder</property>
+    <factor> 20 </factor>
+    <center>
+	<x-m>-0.8062</x-m>
+	<y-m> 0</y-m>
+	<z-m>-0.3178</z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> 1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+  
+
+  <animation>
+    <type>select</type>
+    <object-name>rotor1</object-name>
+    <object-name>rotor2</object-name>
+    <condition>
+      <less-than>
+        <property>rotors/main/rpm</property>
+        <value>350.001</value>
+      </less-than>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>rotor1blur</object-name>
+    <object-name>rotor2blur</object-name>
+    <condition>
+      <greater-than>
+        <property>rotors/main/rpm</property>
+        <value>150</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+
+  <animation>
+    <type>select</type>
+	<object-name>tail1</object-name>
+	<object-name>tail2</object-name>
+	<object-name>tail3</object-name>
+    <condition>
+      <less-than>
+        <property>rotors/tail/rpm</property>
+        <value>150.001</value>
+      </less-than>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>tailblur</object-name>
+    <condition>
+      <greater-than>
+        <property>rotors/tail/rpm</property>
+        <value>150</value>
+      </greater-than>
+    </condition>
+  </animation>
+  
+<animation>
+    <type>select</type>
+	<object-name>manche1</object-name>	
+	<object-name>manche2</object-name>
+    <condition>
+      <greater-than>
+        <property>sim/current-view/view-number</property>
+        <value>0</value>
+      </greater-than>
+    </condition>
+  </animation>
+  
+
+ <animation>
+    <type>noshadow</type>
+    <object-name>rotor1blur</object-name>
+    <object-name>rotor2blur</object-name>
+    <object-name>tailblur</object-name>
+  </animation>
+
+    <model>
+        <path>Aircraft/M-XE/Models/Instruments/asi.xml</path>
+        <offsets>
+            <x-m>-0.745</x-m>
+            <y-m>-0.08244</y-m>
+            <z-m>-0.03154</z-m>
+            <pitch-deg>-14.0</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/M-XE/Models/Instruments/rpm.xml</path>
+        <offsets>
+            <x-m>-0.755</x-m>
+            <y-m>0</y-m>
+            <z-m>0.009757</z-m>
+            <pitch-deg>-14.0</pitch-deg>
+        </offsets>
+    </model>
+    <model>
+    
+        <path>Aircraft/M-XE/Models/Instruments/vsi.xml</path>
+        <offsets>
+            <x-m>-0.745</x-m>
+            <y-m>0.0826</y-m>
+            <z-m>-0.03154</z-m>
+            <pitch-deg>-14.0</pitch-deg>
+        </offsets>
+    </model>
+    
+       <model>
+        <path>Aircraft/M-XE/Models/Instruments/alt.xml</path>
+        <offsets>
+            <x-m>-0.735</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.06992</z-m>
+            <pitch-deg>-14.0</pitch-deg>
+        </offsets>
+    </model>
+    
+<!-- new
+ <model>
+        <path>Aircraft/M-XE/Models/Instruments/compass.xml</path>
+        <offsets>
+            <x-m>-0.72</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.1564</z-m>
+            <pitch-deg>-3.3</pitch-deg>
+        </offsets>
+    </model>
+    
+    <model>
+        <name>CoPilot HSI</name>
+        <path>Aircraft/dhc6/Models/Instruments/hdg-gauge.xml</path>
+        <offsets>
+	<x-m>-0.72</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.1564</z-m>
+            <pitch-deg>-3.3</pitch-deg>
+        </offsets>
+    </model>
+    -->
+
+  <model>
+    <name>pilot</name>
+    <path>Aircraft/M-XE/Models/pilot.xml</path>
+    <offsets>
+      <x-m>0</x-m>
+      <y-m>-0</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+  
+  <!--  ground shadow  -->
+
+ <model>
+  <path>Aircraft/M-XE/Models/Effects/shadow.xml</path>
+ </model>
+
+  
+</PropertyList>

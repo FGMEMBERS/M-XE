@@ -1,0 +1,344 @@
+<!-- R22 sound config-->
+<PropertyList>
+    <fx>
+	<crank>
+      <name>engstart</name>
+      <path>Sounds/engstart.wav</path>
+      <property>/engines/engine/cranking</property>
+      <volume>
+        <offset>0.4</offset>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </crank>
+
+    <crank>
+      <name>crank</name>
+      <mode>looped</mode>
+      <path>Sounds/cranking.wav</path>
+      <condition>
+        <property>/engines/engine/cranking</property>
+        <not>
+          <property>/engines/engine/running</property>
+        </not>
+      </condition>
+      <volume>
+        <offset>0.5</offset>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </crank>
+
+    <crank>
+      <name>cough</name>
+      <path>Sounds/coughing.wav</path>
+      <property>/engines/engine/running</property>
+      <volume>
+        <offset>0.3</offset>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </crank>
+
+    <engine>
+      <name>engine</name>
+      <mode>looped</mode>
+      <path>Sounds/wasp.wav</path>
+      <property>/engines/engine/running</property>
+      <volume>
+        <property>/engines/engine/mp-osi</property>
+        <factor>0.0375</factor>
+        <min>0.15</min>
+        <max>2.5</max>
+      </volume>
+      <volume>
+        <property>/sim/current-view/internal</property>
+        <offset>0.5</offset>
+        <factor>-0.35</factor>
+      </volume>
+      <pitch>
+        <property>/engines/engine/rpm</property>
+        <factor>0.0004</factor>
+        <min>0.1</min>
+        <max>2.0</max>
+        <offset>0.15</offset>
+      </pitch>
+      <position>
+        <x> 2.0 </x>
+        <y> 0.0 </y>
+        <z> 0.1 </z>
+      </position>
+      <orientation>
+        <x> 0 </x>
+        <y> 1 </y>
+        <z> 0 </z>
+        <inner-angle>  50.0 </inner-angle>
+        <outer-angle> 180.0 </outer-angle>
+        <outer-gain>    0.5 </outer-gain>
+      </orientation>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>
+    
+    <wind>
+      <name>wind</name>
+      <mode>looped</mode>
+      <path>Sounds/wind.wav</path>
+      <property>/velocities/airspeed-kt</property>
+      <volume>
+        <property>/position/altitude-ft</property>
+        <factor>-0.000015</factor>
+        <offset>1.0</offset>
+        <min>0.1</min>
+        <max>1.0</max>
+      </volume>
+      <volume>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.0015</factor>
+        <min>0.03</min>
+        <max>0.25</max>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.0035</factor>
+        <offset>1.25</offset>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </wind>
+
+
+ 
+    <!-- rotor -->
+    <rotor>
+      <name>rotor</name>
+      <mode>looped</mode>
+      <path>Sounds/rotor.wav</path> 
+      <condition>
+        <and>
+          <greater-than>
+            <property>rotors/main/rpm</property>
+            <value>50</value>
+          </greater-than>
+          <not>
+            <property>sim/crashed</property>
+          </not>
+        </and>
+      </condition>
+      <volume>
+        <property>rotors/main/rpm</property>
+        <factor>0.02</factor>
+        <max>0.5</max>
+      </volume>
+      <pitch>
+        <property>rotors/main/rpm</property>
+        <factor>0.0015</factor>
+        <offset>-0.2</offset>
+        <max>1.5</max>
+      </pitch>
+      <position>
+        <x> -1.7 </x>
+        <y>  0.0 </y>
+        <z>  1.1 </z>
+      </position>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </rotor>
+
+    <rotor>
+      <name>stall</name>
+      <mode>looped</mode>
+      <path>Sounds/rotor_stall.wav</path>
+      <condition>
+        <and>
+          <greater-than>
+            <property>rotors/main/rpm</property>
+            <value>50</value>
+          </greater-than>
+          <not>
+            <property>sim/crashed</property>
+          </not>
+        </and>
+      </condition>
+      <volume>
+        <property>rotors/main/stall-filtered</property>
+        <factor>350</factor>
+        <max>1.0</max>
+      </volume>
+      <pitch>
+        <property>rotors/main/rpm</property>
+        <factor>0.001131</factor>
+        <offset>0</offset>
+        <max>1.75</max>
+      </pitch>
+      <position>
+        <x> -1.7 </x>
+        <y>  0.0 </y>
+        <z>  1.1 </z>
+      </position>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </rotor>
+
+    
+        <contact>
+            <name>ground contact</name>
+            <mode>once</mode>
+            <path>Sounds/helicopter-skid.wav</path>
+            <condition>
+                <or>
+                    <property>gear/gear[0]/wow</property>
+                    <property>gear/gear[1]/wow</property>
+                    <property>gear/gear[2]/wow</property>
+                    <property>gear/gear[3]/wow</property>
+                </or>
+            </condition>
+            <max-dist>10</max-dist>
+            <reference-dist>5</reference-dist>
+            <volume>
+                <factor>0.8</factor>
+            </volume>
+            <pitch>
+                <factor>0.01</factor>
+            </pitch>
+            <max-dist>5.0</max-dist>
+            <max-dist>10.0</max-dist>
+            <position>
+                <x>0</x>
+                <y>0</y>
+                <z>-2</z>
+            </position>
+        </contact>
+
+        <wind>
+            <name>wind</name>
+            <mode>looped</mode>
+            <path>Sounds/wind.wav</path>
+            <condition>
+                <and>
+                    <property>velocities/airspeed-kt</property>
+                    <not>
+                        <property>sim/crashed</property>
+                    </not>
+                </and>
+            </condition>
+            <max-dist>5</max-dist>
+            <reference-dist>2</reference-dist>
+            <volume>
+                <property>/sim/model/sound/volume1</property>
+            </volume>
+            <volume>
+                <property>position/altitude-ft</property>
+                <factor>-0.000015</factor>
+                <offset>1.0</offset>
+                <min>0.1</min>
+                <max>1.0</max>
+            </volume>
+            <volume>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.0015</factor>
+                <min>0.03</min>
+                <max>0.25</max>
+            </volume>
+            <pitch>
+                <property>velocities/airspeed-kt</property>
+                <factor>0.01</factor>
+                <offset>1.0</offset>
+            </pitch>
+            <max-dist>10.0</max-dist>
+            <position>
+                <x>-2.1</x>
+                <y>1.5</y>
+                <z>-1.05</z>
+            </position>
+        </wind>
+
+        <crash>
+            <name>intense ground contact</name>
+            <mode>once</mode>
+            <path>Sounds/crash.wav</path>
+            <property>sim/crashed</property>
+            <max-dist>50</max-dist>
+            <reference-dist>20</reference-dist>
+            <volume>
+                <factor>1</factor>
+            </volume>
+            <pitch>
+                <factor>0.1</factor>
+            </pitch>
+            <position>
+                <x>0</x>
+                <y>0</y>
+                <z>-1.5</z>
+            </position>
+        </crash>
+<!-- 
+overspeed.wav
+-->
+        <alert>
+            <name>rpm warning</name>
+            <type>avionics</type>
+            <mode>once</mode>
+            <path>Sounds/beep.wav</path>
+            <condition>
+                <less-than>
+                    <property>rotors/main/rpm</property>
+                    <value>500</value>
+                </less-than>
+            </condition>
+            <max-dist>4</max-dist>
+            <reference-dist>2</reference-dist>
+            <volume>
+                <factor>1</factor>
+            </volume>
+            <position>
+                <x>0</x>
+                <y>0</y>
+                <z>-1.5</z>
+            </position>
+        </alert>
+<!--
+        <click>
+            <name>switches on</name>
+            <type>avionics</type>
+            <mode>once</mode>
+            <path>Sounds/click.wav</path>
+            <condition>
+                <property>sim/sound/click</property>
+            </condition>
+            <max-dist>2</max-dist>
+            <reference-dist>1</reference-dist>
+            <volume>
+                <property>sim/sound/volume1</property>
+            </volume>
+            <position>
+                <x>1.5</x>
+                <y>0</y>
+                <z>-1.8</z>
+            </position>
+        </click>
+
+        <click>
+            <name>switches off</name>
+            <type>avionics</type>
+            <mode>once</mode>
+            <path>Sounds/click.wav</path>
+            <condition>
+                <not>
+                    <property>sim/sound/click</property>
+                </not>
+            </condition>
+            <max-dist>2</max-dist>
+            <reference-dist>1</reference-dist>
+            <volume>
+                <property>sim/sound/volume1</property>
+            </volume>
+            <position>
+                <x>1.5</x>
+                <y>0</y>
+                <z>-1.8</z>
+            </position>
+        </click>
+-->
+    </fx>
+</PropertyList>

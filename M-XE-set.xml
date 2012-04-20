@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<!--
+-->
+
+<PropertyList>
+
+    <sim>
+        <description>Mosquito XE</description>
+        <author>Edin Hozic AKA Mr_No</author>
+         <status>alpha 0.72</status>
+        <flight-model>yasim</flight-model>
+        <aero>M-XE</aero>
+        
+	    <fuel-fraction>0.6</fuel-fraction>
+	
+        <startup>
+            <splash-texture>Aircraft/M-XE/splash.png</splash-texture>
+        </startup>
+	
+        <model>
+            <path>Aircraft/M-XE/Models/M-XE.xml</path>
+        </model>
+
+        <hud>
+            <enable3d>false</enable3d>
+        </hud>
+
+        <sound>
+            <path>Aircraft/M-XE/M-XE-sound.xml</path>
+            <volume1 type="double">0.5</volume1>
+            <click type="bool">0</click>
+        </sound>
+
+        <virtual-cockpit archive="y">true</virtual-cockpit>
+        <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+        <view>
+            <internal archive="y">true</internal>
+            <config>
+                <ground-level-nearplane-m type="double">0.1f</ground-level-nearplane-m>
+                <x-offset-m archive="y">0</x-offset-m>
+                <y-offset-m archive="y">0.4</y-offset-m>
+                <z-offset-m archive="y">0.2</z-offset-m>
+                <pitch-offset-deg>-8</pitch-offset-deg>
+                <default-field-of-view-deg type="double">75.0</default-field-of-view-deg>
+            </config>
+        </view>
+
+    <view n="1">
+        <config>
+            <ground-level-nearplane-m type="double">0.1f</ground-level-nearplane-m>
+            <target-y-offset-m archive="y" type="double">0</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+            <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        </config>
+    </view>
+        
+    <view n="2">
+        <config>
+            <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+            <target-y-offset-m archive="y" type="double">0</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+            <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        </config>
+    </view>
+    
+        
+    <view n="4">
+        <config>
+            <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+            <target-y-offset-m archive="y" type="double">0</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+            <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        </config>
+    </view>
+        
+        
+    <view n="6">
+        <config>
+            <target-y-offset-m archive="y" type="double">0</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+            <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        </config>
+    </view>
+
+    <view n="7">
+        <config>
+            <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+            <target-y-offset-m archive="y" type="double">0</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
+            <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        </config>
+    </view>
+
+        <chase-distance-m type="double" archive="y">-15.0</chase-distance-m>
+
+        <weight n="0">
+            <name>Pilot</name>
+            <weight-lb>180</weight-lb>
+            <max-lb>240</max-lb>
+            <min-lb>100</min-lb>
+        </weight>
+
+		<weight n="1">
+			<name>LeftFGear</name>
+			<weight-lb>30</weight-lb>
+			<max-lb>100</max-lb>
+		</weight>
+
+		<weight n="2">
+			<name>LeftRGear</name>
+			<weight-lb>30</weight-lb>
+			<max-lb>100</max-lb>
+		</weight>
+
+		<weight n="3">
+			<name>RightFGear</name>
+			<weight-lb>30</weight-lb>
+			<max-lb>100</max-lb>
+		</weight>
+
+		<weight n="4">
+			<name>RightRGear</name>
+			<weight-lb>30</weight-lb>
+			<max-lb>100</max-lb>
+		</weight>
+
+
+        <help>
+            <title>M-XE</title>
+            <line></line>
+            <key>
+                <name>y</name>
+                <desc>Toggle yokes on / off</desc>
+            </key>
+            <key>
+                <name>{</name>
+                <desc>Turn ignition key off</desc>
+            </key>
+            <key>
+                <name>}</name>
+                <desc>Turn ignition key on</desc>
+            </key>
+            <key>
+                <name>s</name>
+                <desc>Engage starter</desc>
+            </key>
+            <key>
+                <name>n</name>
+                <desc>Toggle rotor brake</desc>
+            </key>
+	    <key>
+                <name>m</name>
+                <desc>Set collective to zero</desc>
+            </key>
+        </help>
+
+    <yokes-visible type="bool" userarchive="y">1</yokes-visible>
+
+    <menubar>
+        <default>
+            <menu n="10">
+                <label>M-XE</label>
+                <enabled type="bool">true</enabled>
+                <item>
+                    <label>Select Livery</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>aircraft.livery.dialog.toggle()</script>
+                    </binding>
+                </item>
+            </menu>
+        </default>
+    </menubar>
+    </sim>
+
+
+       <consumables>
+        <fuel>
+            <tank n="0">
+                <name>Main</name>
+                <level-lbs>100.0</level-lbs>
+                <selected type="bool">1</selected>
+	   </tank>
+	</fuel>
+	</consumables>
+	 
+    <controls>
+      <engines>
+            <engine>
+                <throttle>1.0</throttle>
+                <clutch type="bool">0</clutch>
+                <clutchguard type="bool">0</clutchguard>
+            </engine>
+        </engines>
+        <rotor>
+            <engine-throttle type="double">1.0</engine-throttle>
+        </rotor>
+    </controls>
+	 <!-- 
+	<consumables>
+        <fuel>
+            <tank n="0">
+                <name>Main</name>
+                <level-lbs>100.0</level-lbs>
+                <selected type="bool">1</selected>
+            </tank>
+	        <tank n="1">
+                <name>Auxilary</name>
+                <level-lbs>0</level-lbs>
+                <selected type="bool">1</selected>
+            </tank>
+	    
+	</fuel>
+	</consumables>
+
+
+    <controls>
+        <engines>
+            <engine>
+                <throttle>1.0</throttle>
+                <clutch type="bool">0</clutch>
+                <clutchguard type="bool">0</clutchguard>
+            </engine>
+        </engines>
+        <flight>
+            <aileron-trim>0</aileron-trim>
+            <elevator-trim>0</elevator-trim>
+            <auto-pedals userarchive="y">0</auto-pedals>
+       
+       </flight>
+        <gear>
+            <brake-parking>1</brake-parking>
+        </gear>
+        <electric>
+            <key type="int">0</key>
+            <battery-switch>0</battery-switch>
+            <engine>
+                <generator>0</generator>
+            </engine>
+        </electric>
+        <rotor>
+            <engine-throttle type="double">1.0</engine-throttle>
+            <brake>0</brake>
+        </rotor>
+        <lighting>
+            <dimmer-switch type="double">0.5</dimmer-switch>
+            <landing-lights type="bool">0</landing-lights>
+        </lighting>
+    </controls>
+    
+	    -->
+ <!-- 
+ <key n="109">
+				<name>m</name>
+				<desc>Mixture Rich.</desc>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/engines/engine/mixture-lever</property>
+					<value type="double">1.0</value>
+				</binding>
+			</key>
+ -->
+        
+    <input>
+	<keyboard> 
+	
+            <key n="109">
+                <name>m</name>
+                <desc>Set collective to zero</desc>
+                <binding>
+                    <command>property-assign</command>
+		<property>/controls/engines/engine/throttle</property>
+		<value type="double">1.0</value>
+                </binding>
+            </key>
+      
+	<key n="110">
+                <name>n</name>
+                <desc>Toggle rotor brake</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>controls/rotor/brake</property>
+                </binding>
+            </key>
+	    
+	<key n="44">
+		<name>,</name>
+		<desc>Move rudder right</desc>
+		<repeatable type="bool">true</repeatable>
+		<binding>
+		<command>property-adjust</command>
+		<property>/controls/flight/rudder</property>
+		<step type="double">0.05</step>
+		</binding>
+	 </key>
+	
+        </keyboard>
+    </input>
+    
+    
+     <nasal>
+        <M-XE>
+            <!--  <file>Aircraft/M-XE/Nasal/systems.nas</file> -->
+	  
+	    
+	  <file>Aircraft/M-XE/Nasal/heli.nas</file>
+        </M-XE>
+    </nasal>
+    
+  
+</PropertyList>
