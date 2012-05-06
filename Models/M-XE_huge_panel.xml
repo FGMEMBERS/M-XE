@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <model>
+        <path>Aircraft/M-XE/Models/Instruments/asiH.xml</path>
+        <offsets>
+            <x-m>-0.0</x-m>
+            <y-m>-0.0674</y-m> 
+            <z-m>-0.0</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/M-XE/Models/Instruments/rpmH.xml</path>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>0</y-m>
+            <z-m>0.0</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+    <model>
+    
+        <path>Aircraft/M-XE/Models/Instruments/vsiH.xml</path>
+        <offsets>
+            <x-m>-0.0</x-m>
+            <y-m>0.0674</y-m>
+            <z-m>-0.0</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+    
+
+  
+</PropertyList>

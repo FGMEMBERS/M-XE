@@ -30,9 +30,14 @@
     <object-name>visiere</object-name>
   </animation>
 
-  <!-- Visire invisible depuis le cockpit -->
+  <!-- Visire invisible depuis le cockpit 
+  
+  <type>select</type>
+  -->
   <animation>
-    <type>select</type>
+    <type>range</type>
+	
+	
     <object-name>tete</object-name>
     <object-name>visiere</object-name>
     <object-name>corps</object-name>
@@ -47,19 +52,47 @@
     <object-name>jambeD</object-name>
     <object-name>piedG.001</object-name>
     <object-name>piedD.001</object-name>
+	
+     <min-m>1</min-m>
+      <max-m>10000</max-m>
+	
+  
+  </animation>
+
+<!-- *** LoD *** 
+
+
+<condition>
+	<not>
+		<property>/sim/current-view/internal</property>
+	</not>
+	</condition>
+  
+  
     <condition>
       <greater-than>
-        <property>sim/current-view/view-number</property>
+        <property>/sim/current-view/view-number</property>
         <value>0</value>
       </greater-than>
     </condition>
-  </animation>
 
-<!-- *** LoD *** -->
-  <animation> 
+<animation>
+  <type>select</type>
+  <object-name>fuselage</object-name>
+  <condition>
+   <not>
+    <property>sim/current-view/internal</property>
+   </not>
+  </condition>
+ </animation>
+ 
+   <animation> 
     <type>range</type>
-    <min-m>0</min-m>
+    <min-m>1</min-m>
     <max-m>10000</max-m>
   </animation>
+
+-->
+
 
 </PropertyList>

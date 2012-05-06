@@ -2,7 +2,7 @@
 Mosquito XE
 Ultralight Helicopter
 For FlightGear   
-Release 0.72 (Alpha) 
+Release 0.85 (Alpha) 
 Tested on FG v2.6.0.
 
 Author:
@@ -36,6 +36,33 @@ http://www.innovator.mosquito.net.nz/
 
 
 VERSION
+0.85 Alpha release
+Fixed menu not saving settings
+Fixed more online issues
+Removed most warning messages. 
+  You'll have to listen to the sounds to figure out what failed.
+  Listening to rotor stall, rpm, and vibrations is much more realistic.
+Added rotor brake message
+Resolved problems with FG 2.4
+Added flight recorder settings (settings in separate file, 
+  should not malfunction in FG 2.4)
+Reduced ETL speed for VRS 
+Reduced VRS force
+Reduce max rotor rpm
+Added HUGE instruments that can be toggled
+Added look up and down 
+
+-----
+0.8 Alpha release
+Solved some online bugs
+Added more sounds
+Added more flight behaviour
+Nasal script for fuel consumption
+Added limitation menu with advanced flight options
+Updated the model
+Lots of other small fixes
+
+-----
 0.72 Alpha release
 Better handling (inertia)
 Centered pedals

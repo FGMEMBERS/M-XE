@@ -4,30 +4,27 @@
 
 <path>rpm.ac</path>
 
-
-<!-- 
-
-    <animation>
-        <type>rotate</type>
-        <object-name>RPM.Eneedle</object-name>
-        <property>engines/engine/n1</property>
-        <interpolation>
-            <entry><ind>0.0</ind><dep>0</dep></entry>
-            <entry><ind>110</ind><dep>85.0</dep></entry>
-        </interpolation>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-        <center>
-            <x-m>0</x-m>
-            <y-m>-0.027</y-m>
-            <z-m>0.0</z-m>
-        </center>
-    </animation>
-
--->
+	<animation>
+		<type>select</type>
+		<object-name>RPM.face</object-name>
+		<object-name>RPM.Rneedle</object-name>
+		<object-name>RPM.Eneedle</object-name>
+		<condition>
+		  <greater-than>
+			<property>sim/heli-huge-panel</property>
+			<value>0</value>
+		  </greater-than>
+		</condition>
+	  </animation>
+	  	
+	<animation>
+		<type>range</type>
+		<object-name>RPM.face</object-name>
+		<object-name>RPM.Rneedle</object-name>
+		<object-name>RPM.Eneedle</object-name>		
+		<max-m>1</max-m>
+	</animation>
+	
     <animation>
         <type>rotate</type>
         <object-name>RPM.Eneedle</object-name>
@@ -68,5 +65,6 @@
             <z-m>0.0</z-m>
         </center>
     </animation>
+
 
 </PropertyList>

@@ -7,7 +7,7 @@
     <animation>
         <type>rotate</type>
         <object-name>ALTneedle.1</object-name>
-        <property>instrumentation/altimeter/indicated-altitude-ft</property>
+        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
         <factor>0.36</factor>
         <axis>
             <x>-1</x>
@@ -19,7 +19,7 @@
     <animation>
         <type>rotate</type>
         <object-name>ALTneedle.2</object-name>
-        <property>instrumentation/altimeter/indicated-altitude-ft</property>
+        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
         <factor>0.036</factor>
         <axis>
             <x>-1</x>
@@ -31,7 +31,7 @@
     <animation>
         <type>rotate</type>
         <object-name>ALTneedle.3</object-name>
-        <property>instrumentation/altimeter/indicated-altitude-ft</property>
+        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
         <factor>0.0036</factor>
         <axis>
             <x>-1</x>
@@ -43,7 +43,7 @@
     <animation>
         <type>texrotate</type>
         <object-name>ALT.inhg</object-name>
-        <property>instrumentation/altimeter/setting-inhg</property>
+        <property>/instrumentation/altimeter/setting-inhg</property>
         <interpolation>
             <entry><ind>27.50</ind><dep>0</dep></entry>
             <entry><ind>31.00</ind><dep>350.0</dep></entry>
@@ -58,40 +58,6 @@
             <y>0</y>
             <z>-1</z>
         </axis>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>ALT.knob</object-name>
-        <action>
-            <button>3</button>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-adjust</command>
-                <property>instrumentation/altimeter/setting-inhg</property>
-                <step>0.01</step>
-                <min>27.50</min>
-                <max>31.0</max>
-                <wrap>0</wrap>
-            </binding>
-        </action>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>ALT.knob</object-name>
-        <action>
-            <button>4</button>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-adjust</command>
-                <property>instrumentation/altimeter/setting-inhg</property>
-                <step>-0.01</step>
-                <min>27.50</min>
-                <max>31.0</max>
-                <wrap>0</wrap>
-            </binding>
-        </action>
     </animation>
 
 </PropertyList>

@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<name>limitations_dlg</name>
+	<layout>vbox</layout>
+	<draggable>true</draggable>
+	<resizable>true</resizable>
+<!--
+	<nasal>
+		<open>
+			props.globals.initNode("/sim/gui/dialogs/tiller-steering/value", 0.0);
+			setprop("/controls/gear/tiller-cmd-norm", 0.0);
+		</open>
+		<close>
+			setprop("/sim/gui/dialogs/tiller-steering/value", 0.0);
+			setprop("/controls/gear/tiller-cmd-norm", 0.0);
+		</close>
+	</nasal>
+ -->
+	<group>
+		<layout>hbox</layout>
+		<text>
+			<label>Limitations</label>
+		</text>
+
+		<empty>
+			<stretch>true</stretch>
+		</empty>
+
+		<button>
+			<legend/>
+			<key>Esc</key>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+	
+	<hrule/>
+	<group>
+		<stretch>true</stretch>
+		<layout>vbox</layout>
+		<halign>left</halign>
+		<valign>top</valign>
+		<padding>5</padding>
+		<pref-width>300</pref-width>
+	
+		<checkbox>
+			<halign>left</halign>
+			<label>Settling With Power (VRS)</label>
+			<property>/sim/heli-realism-settling</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		
+		<checkbox>
+			<halign>left</halign>
+			<label>Severe Blade Stall</label>
+			<property>/sim/heli-realism-airoverspeed</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		
+		
+		<checkbox>
+			<halign>left</halign>
+			<label>Rotor Overspeed</label>
+			<property>/sim/heli-realism-rpmoverspeed</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		
+		<checkbox>
+			<halign>left</halign>
+			<label>G-Forces</label>
+			<property>/sim/heli-realism-gforces</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		
+		<checkbox>
+			<halign>left</halign>
+			<label>Fuel Consumption</label>
+			<property>/sim/heli-realism-fuelcons</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		
+		
+		
+		<button>
+			<legend>Close</legend>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+		
+	</group>
+	<hrule/>
+
+	<text>
+		<label>What limitations do you want to use?</label>
+	</text>
+
+</PropertyList>
+

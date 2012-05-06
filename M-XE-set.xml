@@ -7,23 +7,92 @@
     <sim>
         <description>Mosquito XE</description>
         <author>Edin Hozic AKA Mr_No</author>
-         <status>alpha 0.72</status>
+         <status>alpha 0.85</status>
         <flight-model>yasim</flight-model>
         <aero>M-XE</aero>
         
-	    <fuel-fraction>0.6</fuel-fraction>
+	<fuel-fraction>0.9</fuel-fraction>
+	<!-- -->
 	
         <startup>
             <splash-texture>Aircraft/M-XE/splash.png</splash-texture>
         </startup>
 	
         <model>
-            <path>Aircraft/M-XE/Models/M-XE.xml</path>
+            <path archive="y">Aircraft/M-XE/Models/M-XE.xml</path>
+	    <livery>
+	   <file type="string">Green</file>
+	  </livery>
         </model>
 
         <hud>
             <enable3d>false</enable3d>
         </hud>
+	
+	<!--
+	 <livery>
+	   <file type="string">Green</file>
+	  </livery>
+	
+	
+    <hud>
+	<path n="1">Huds/NTPS.xml</path>
+	<visibility n="1">false</visibility>
+	<enable3d n="1">true</enable3d>
+    </hud>
+
+-->
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+	<int n="0" type="int">  0 </int>  <!-- RESERVED FOR DUAL CONTROL (Boolean Switch)-->
+	<int n="1" type="int">  0 </int>  <!-- 0 immat -->
+	<int n="2" type="int">  0 </int>  <!-- 1 immat -->
+	<int n="3" type="int">  0 </int>  <!-- 2 immat -->
+	<int n="4" type="int">  0 </int>  <!-- 3 immat -->
+	<int n="5" type="int">  0 </int>  <!-- 4 immat -->
+	<int n="6" type="int">  0 </int>  <!-- 5 immat -->
+	<int n="7" type="bool"> 0 </int>  <!-- 6 smoke -->
+	<int n="8" type="int">  0 </int>  <!-- 7 color -->
+	<int n="9" type="int">  0 </int>  <!-- RESERVED FOR DUAL CONTROL (Boolean Light Switch)-->
+	
+	<float n="0" alias="/position/altitude-agl-ft">0</float>  
+	<!-- 
+	<int n="10" alias="/rotors/main/rpm">  0 </int> 
+	<int n="11" alias="/rotors/tail/rpm">  0 </int>  
+	
+	11 altitude for MP shadow -->
+
+      </generic>
+    </multiplay>
+
+
+      <flight-recorder>
+      <path>Aircraft/M-XE/M-XE_rec.xml</path>
+    </flight-recorder>
+    
+<!--
+		
+			<replay-config type="int">0</replay-config>
+			<config n="0" include="Aircraft/Generic/flightrecorder/generic-helicopter.xml">
+				<name type="string">My Aircraft's Flight Recorder</name>
+				
+				
+				 More custom signals here
+				<signal>
+				    <type>int</type>
+				    <property type="string">/controls/engines/engine[0]/magnetos</property>
+				</signal>
+				
+				<signal>
+					<type>float</type>
+					<property type="string">/position/altitude-agl-ft</property>
+					<interpolation>linear</interpolation>
+				</signal>
+				
+			</config>
+		</flight-recorder>-->
 
         <sound>
             <path>Aircraft/M-XE/M-XE-sound.xml</path>
@@ -42,7 +111,7 @@
                 <y-offset-m archive="y">0.4</y-offset-m>
                 <z-offset-m archive="y">0.2</z-offset-m>
                 <pitch-offset-deg>-8</pitch-offset-deg>
-                <default-field-of-view-deg type="double">75.0</default-field-of-view-deg>
+                <default-field-of-view-deg type="double">76.0</default-field-of-view-deg>
             </config>
         </view>
 
@@ -94,57 +163,77 @@
 
         <chase-distance-m type="double" archive="y">-15.0</chase-distance-m>
 
-        <weight n="0">
+
+	<weight n="0">
             <name>Pilot</name>
             <weight-lb>180</weight-lb>
             <max-lb>240</max-lb>
             <min-lb>100</min-lb>
         </weight>
-
+	
+	
 		<weight n="1">
-			<name>LeftFGear</name>
+			<name>Internal_LF</name>
 			<weight-lb>30</weight-lb>
 			<max-lb>100</max-lb>
 		</weight>
 
 		<weight n="2">
-			<name>LeftRGear</name>
+			<name>Internal_LR</name>
 			<weight-lb>30</weight-lb>
 			<max-lb>100</max-lb>
 		</weight>
 
 		<weight n="3">
-			<name>RightFGear</name>
+			<name>Internal_RF</name>
 			<weight-lb>30</weight-lb>
 			<max-lb>100</max-lb>
 		</weight>
 
 		<weight n="4">
-			<name>RightRGear</name>
+			<name>Internal_RR</name>
 			<weight-lb>30</weight-lb>
 			<max-lb>100</max-lb>
 		</weight>
+		
+		<weight n="5">
+			<name>Internal_CT</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>10000</max-lb>
+		</weight>
+	<!--
+		<weight n="6">
+			<name>Internal_BladeLeft</name>
+			<weight-lb>0</weight-lb>
+			<max-lb>1000</max-lb>
+		</weight>
+		
+		 <key>
+                <name>y</name>
+                <desc>Toggle yokes on / off</desc>
+            </key>
+	    
+	    <key>
+                <name>s</name>
+                <desc>Engage starter</desc>
+            </key>
+	    
+	-->
 
 
         <help>
             <title>M-XE</title>
             <line></line>
-            <key>
-                <name>y</name>
-                <desc>Toggle yokes on / off</desc>
-            </key>
+           
             <key>
                 <name>{</name>
-                <desc>Turn ignition key off</desc>
+                <desc>Turn engine off</desc>
             </key>
             <key>
                 <name>}</name>
-                <desc>Turn ignition key on</desc>
+                <desc>Turn engine on</desc>
             </key>
-            <key>
-                <name>s</name>
-                <desc>Engage starter</desc>
-            </key>
+            
             <key>
                 <name>n</name>
                 <desc>Toggle rotor brake</desc>
@@ -153,10 +242,60 @@
                 <name>m</name>
                 <desc>Set collective to zero</desc>
             </key>
+	    
+			<key>
+                <name>,</name>
+                <desc>Toggle Elevator Trim For Forward Flight</desc>
+            </key>
+			
+			<key>
+                <name>l</name>
+                <desc>Toggle Look Up</desc>
+            </key>
+			<key>
+                <name>.</name>
+                <desc>Toggle Look Down</desc>
+            </key>
+			
+	 
+	 <text>Vortex Ring State
+
+Also known as Settling with Power, this is a condition where the helicopter begins to settle in its own downwash (gets pulled down to the ground). It will be recognized by a vibration of the main rotor system, quickly followed by a rapidly increasing sink rate that can reach 6000 fpm. 
+
+There are three conditions required to be present to get into settling with power. You must have airspeed less than ETL (20-knots), you must be using 20-percent or greater power, and you must have a sink rate of 300-feet per minute or greater. 
+
+Avoidance requires that you remember that all three of the conditions stated above must be present, so you only need to keep one of those conditions absent to avoid that phenomenon.
+
+Maintain not less than 30-knots (a good safety margin) in the primary descent. Pilots should be aware of their gross weight and the direction of the wind, until the helicopter is turned into the wind, and the sink rate is reduced. 
+
+Be careful when you hover out of ground effect. Monitor your vertical speed and don't reduce power too fast.
+
+The recovery procedure will be to input forward cyclic to fly free of the vortices and gain speed, and simultaneously decrease the collective pitch (decrease power) reducing the size of the vortices.</text>
+	 
         </help>
 
-    <yokes-visible type="bool" userarchive="y">1</yokes-visible>
-
+    <yokes-visible type="bool" >1</yokes-visible>
+    
+    <heli-realism-settling type="bool" userarchive="y">1</heli-realism-settling>
+    <heli-realism-airoverspeed type="bool" userarchive="y">1</heli-realism-airoverspeed>
+    <heli-realism-rpmoverspeed type="bool" userarchive="y">1</heli-realism-rpmoverspeed>
+    <heli-realism-gforces type="bool" userarchive="y">1</heli-realism-gforces>
+   <heli-realism-fuelcons type="bool" userarchive="y">1</heli-realism-fuelcons>
+  
+   <heli-huge-panel type="bool" userarchive="y">0</heli-huge-panel>
+  
+     <heli-realism-overspeed type="bool">0</heli-realism-overspeed>
+    
+<!--
+		<item>
+                        <label>Show/Hide Yokes</label>
+                        <binding>
+                            <command>property-toggle</command>
+                            <property>sim/yokes-visible</property>
+                        </binding>
+		</item>
+	userarchive="y"
+-->
     <menubar>
         <default>
             <menu n="10">
@@ -169,6 +308,24 @@
                         <script>aircraft.livery.dialog.toggle()</script>
                     </binding>
                 </item>
+		
+		
+				<item>
+                        <label>Limitations</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>dialogs.limitations_dlg.open()</script>
+                        </binding>
+                </item>
+				
+				<item>
+                        <label>Toggle Huge Instruments</label>
+                        <binding>
+                            <command>property-toggle</command>
+                            <property>sim/heli-huge-panel</property>
+                        </binding>
+				</item>
+		
             </menu>
         </default>
     </menubar>
@@ -179,7 +336,12 @@
         <fuel>
             <tank n="0">
                 <name>Main</name>
-                <level-lbs>100.0</level-lbs>
+                <level-lbs>64.0</level-lbs>
+                <selected type="bool">1</selected>
+	   </tank>
+	   <tank n="1">
+                <name>Aux</name>
+                <level-lbs>0.0</level-lbs>
                 <selected type="bool">1</selected>
 	   </tank>
 	</fuel>
@@ -196,8 +358,25 @@
         <rotor>
             <engine-throttle type="double">1.0</engine-throttle>
         </rotor>
+	
+	<flight>
+            <aileron-trim>0</aileron-trim>
+            <elevator-trim>0</elevator-trim>
+       </flight>
+	
     </controls>
 	 <!-- 
+	 
+	 	
+		<item>
+                        <label>Toggle Settling With Power</label>
+                        <binding>
+                             <command>nasal</command>
+			<script>heli.toggle_realism_settling()</script>
+                        </binding>
+                    </item>
+		
+		
 	<consumables>
         <fuel>
             <tank n="0">
@@ -265,25 +444,69 @@
     <input>
 	<keyboard> 
 	
-            <key n="109">
-                <name>m</name>
-                <desc>Set collective to zero</desc>
-                <binding>
-                    <command>property-assign</command>
+	<key n="109">
+	<name>m</name>
+	<desc>Set collective to zero</desc>
+		<binding>
+		<command>property-assign</command>
 		<property>/controls/engines/engine/throttle</property>
 		<value type="double">1.0</value>
-                </binding>
-            </key>
+		</binding>
+	</key>
       
 	<key n="110">
-                <name>n</name>
-                <desc>Toggle rotor brake</desc>
-                <binding>
-                    <command>property-toggle</command>
-                    <property>controls/rotor/brake</property>
-                </binding>
-            </key>
-	    
+	<name>n</name>
+	<desc>Toggle rotor brake</desc>
+		<binding>
+			<command>property-toggle</command>
+			<property>controls/rotor/brake</property>
+		</binding>
+	</key>
+    
+	<key n="44">
+	<name>,</name>
+	<desc>Toggle Elevator Trim For Forward Flight</desc>
+		<binding>
+		<command>nasal</command>
+		<script>heli.toggle_forward_trim();</script>
+		</binding>
+	 </key>
+	 
+	<key n="46">
+	<name>.</name>
+	<desc>Toggle Look Down</desc>
+		<binding>
+		<command>nasal</command>
+		<script>heli.look_down();</script>
+		</binding>
+	</key>
+	 
+	<key n="108">
+	<name>l</name>
+	<desc>Toggle Look Up</desc>
+		<binding>
+		<command>nasal</command>
+		<script>heli.look_up();</script>
+		</binding>
+	</key>
+		
+	<key n="118">
+	<name>v</name>
+	<desc>Scroll through views</desc>
+		<binding>
+		<command>nasal</command>
+		<script>view.stepView(1);</script>
+		</binding>
+	</key>
+			
+     </keyboard>
+ </input>
+    
+	<!--  
+	stepView_new
+	view.stepView(1)
+	heli.stepView_new();
+	
 	<key n="44">
 		<name>,</name>
 		<desc>Move rudder right</desc>
@@ -295,17 +518,45 @@
 		</binding>
 	 </key>
 	
-        </keyboard>
-    </input>
-    
+	
+	<file>Aircraft/M-XE/Nasal/systems.nas</file>
+	
+	<binding>
+		<command>nasal</command>
+		<script>aircraft.livery.dialog.toggle()</script>
+	</binding>
+	
+<key n="44">
+		<name>,</name>
+		<desc>Move rudder right</desc>
+		<repeatable type="bool">true</repeatable>
+		<binding>
+		<command>property-adjust</command>
+		<property>/controls/flight/rudder</property>
+		<step type="double">0.05</step>
+		</binding>
+	 </key>
+-->
+	
     
      <nasal>
-        <M-XE>
-            <!--  <file>Aircraft/M-XE/Nasal/systems.nas</file> -->
-	  
-	    
-	  <file>Aircraft/M-XE/Nasal/heli.nas</file>
-        </M-XE>
+	<M-XE>
+		<file>Aircraft/M-XE/Nasal/livery.nas</file>
+	
+	</M-XE>
+	<heli>
+		<file>Aircraft/M-XE/Nasal/heli.nas</file>
+	</heli>
+	
+	
+	<fuel>
+		<file>Aircraft/M-XE/Nasal/fuel.nas</file>
+	</fuel>
+
+	<dialogs>
+		<file>Aircraft/M-XE/Nasal/dialogs.nas</file>
+	</dialogs>
+	
     </nasal>
     
   
