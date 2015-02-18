@@ -1,4 +1,4 @@
-﻿
+
 Mosquito XE
 Ultralight Helicopter
 For FlightGear   
